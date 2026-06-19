@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AI MCQ Exam</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>AI MCQ Exam System</h1>
+
+
+
+<div id="home">
+
+
+<h2>Step 1: Convert MCQ to JSON</h2>
+
+
+<textarea id="promptBox">
+
+Convert the MCQ set you just created into a clean JSON format for an online exam system.
+
+Important rules:
+
+- Return ONLY valid JSON.
+- Do not write any explanation or extra text.
+- Do not use markdown.
+- Keep every question and option exactly the same.
+- Do NOT include the correct answer.
+- Do NOT include answer keys.
+- Add a unique ID for every question starting from 1.
+- Include exam time as a field named "time".
+- Time value must be in minutes.
+- Maximum 1 minutes for every question.
+- Count total questions automatically.
+
+Use this exact structure:
+
+{
+"exam_title":"Exam Name",
+"time":,
+"total_questions":,
+"questions":[
+{
+"id":1,
+"question":"Question text",
+"options":[
+"Option 1",
+"Option 2",
+"Option 3",
+"Option 4"
+]
+}
+]
+}
+
+
+Now convert the MCQ set above into this JSON format.
+
+</textarea>
+
+
+
+<button onclick="copyPrompt()">
+Copy Prompt
+</button>
+
+
+
+<h2>Step 2: Paste JSON</h2>
+
+
+<textarea id="jsonInput"
+placeholder="Paste JSON here">
+</textarea>
+
+
+
+<button onclick="startExam()">
+Start Exam
+</button>
+
+
+</div>
+
+
+
+
+
+<div id="exam" style="display:none;">
+
+
+<h2 id="title"></h2>
+
+
+<h3>
+Time Left:
+<span id="timer"></span>
+</h3>
+
+
+
+<div id="questions"></div>
+
+
+<button onclick="submitExam()">
+Submit Exam
+</button>
+
+
+</div>
+
+
+
+
+
+
+<div id="result"></div>
+
+
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+
+</html>
